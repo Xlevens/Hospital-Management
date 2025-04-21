@@ -10,7 +10,7 @@ class Staff(models.Model):
 class Doctor(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    specialization = models.CharField(max_length=100),
+    specialization = models.CharField(max_length=100, null=True)
     department = models.CharField(max_length=100)
     def __str__(self):
         return self.name

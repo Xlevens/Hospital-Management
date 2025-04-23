@@ -4,20 +4,30 @@ from .models import *
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
-        # fields = '__all__'
+        
         exclude = ['id']
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
-        # fields = '__all__'
+        
         exclude = ['id']
 class NurseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Nurse
-        # fields = '__all__'
+        
         exclude = ['id']
 class StaffSerializer(serializers.ModelSerializer):
     class Meta:
         model = Staff
-        # fields = '__all__'
+        
+        exclude = ['id']
+class AppointmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Appointment
+        
+        exclude = ['id']
+class PrescriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Prescription
+        
         exclude = ['id']

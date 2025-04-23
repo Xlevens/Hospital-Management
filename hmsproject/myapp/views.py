@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
+from django.urls import reverse
 
 # Create your views here.
 
@@ -8,6 +9,26 @@ from rest_framework.decorators import APIView, api_view
 from rest_framework.response import Response
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
+from django.http import JsonResponse
+from django.urls import reverse
+
+@api_view(['GET'])
+def api_home(request):
+    return Response({
+        "Doctors (List/Create)": request.build_absolute_uri(reverse('doctor-list')),
+        "Doctors (Detail)": request.build_absolute_uri('/doctor/<id>'),
+        "Patients (List/Create)": request.build_absolute_uri(reverse('patient-list')),
+        "Patients (Detail)": request.build_absolute_uri('/patient/<id>'),
+        "Nurses (List/Create)": request.build_absolute_uri(reverse('nurse-list')),
+        "Nurses (Detail)": request.build_absolute_uri('/nurse/<id>'),
+        "Staff (List/Create)": request.build_absolute_uri(reverse('staff-list')),
+        "Staff (Detail)": request.build_absolute_uri('/staff/<id>'),
+        "Appointments (List/Create)": request.build_absolute_uri(reverse('appointment-list')),
+        "Appointments (Detail)": request.build_absolute_uri('/appointment/<id>'),
+        "Prescriptions (List/Create)": request.build_absolute_uri(reverse('prescription-list')),
+        "Prescriptions (Detail)": request.build_absolute_uri('/prescription/<id>'),
+    })
+
 
 class DoctorViewSet(APIView):
   

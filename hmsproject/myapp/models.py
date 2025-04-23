@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date,timezone,datetime
 
 # Create your models here.
 class Staff(models.Model):
@@ -31,15 +32,13 @@ class Patient(models.Model):
 class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE,related_name="appointments")
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE,related_name="appointments")
-    date = models.DateField()
-    time = models.TimeField()
+    date = models.DateField(default=date.today)
+    time = models.TimeField(default=datetime.now(tz=timezone.utc).time())
     status = models.CharField(max_length=50, default='Scheduled')
     def __str__(self):
         return self.patient.name + " - " + self.doctor.name + " - " + str(self.date) + " " + str(self.time)
 class Prescription(models.Model):
     appointment = models.OneToOneField(Appointment, on_delete=models.CASCADE,related_name="prescription")
     medication = models.TextField()
-    dosage = models.TextField()
-    instructions = models.TextField()
     def __str__(self):
         return self.appointment.patient.name + " - " + self.appointment.doctor.name

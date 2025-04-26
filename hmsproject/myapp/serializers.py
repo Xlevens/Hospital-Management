@@ -31,3 +31,18 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         model = Prescription
         
         exclude = ['id']
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Department
+        
+        exclude = ['id']
+class RoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        
+        exclude = ['id']
+class BillSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bill
+        
+        exclude = ['id']

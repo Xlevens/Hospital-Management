@@ -19,4 +19,13 @@ urlpatterns = [
 
     path('prescription', views.PrescriptionViewSet.as_view(), name='prescription-list'),
     path('prescription/<int:pk>', views.PrescriptionViewSet.as_view(), name='prescription-detail'),
+
+    path('department', views.DepartmentViewSet.as_view(), name='department-list'),
+    path('department/<int:pk>', views.DepartmentViewSet.as_view(), name='department-detail'),
+
+    path('room', views.RoomViewSet.as_view(), name='room-list'),
+    path('room/<int:pk>', views.RoomViewSet.as_view(), name='room-detail'),
+
+    path('bill', views.BillViewSet.as_view(), name='bill-list'),
+    path('bill/<int:pk>', views.BillViewSet.as_view(), name='bill-detail'),
 ]

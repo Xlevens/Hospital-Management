@@ -70,10 +70,15 @@ class DoctorViewSet(APIView):
 class PateintViewSet(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get(self, request):
-        patient_objs = Patient.objects.all()
-        serializer = PatientSerializer(patient_objs, many = True)
-        return Response(serializer.data)
+    def get(self, request,pk=None):
+        if pk:
+            doctor = get_object_or_404(Patient, id=pk)
+            serializer = PatientSerializer(doctor)
+            return Response(serializer.data)
+        else:
+            doctor_objs = Patient.objects.all()
+            serializer = PatientSerializer(doctor_objs, many=True)
+            return Response(serializer.data)
 
 
     def post(self, request):
@@ -103,10 +108,15 @@ class PateintViewSet(APIView):
 
 class NurseViewSet(APIView):
     permission_classes = [IsAuthenticated]
-    def get(self,request):
-        nurse_objs = Nurse.objects.all()
-        serializer = NurseSerializer(nurse_objs, many = True)
-        return Response(serializer.data)
+    def get(self,request,pk=None):
+        if pk:
+            nurse = get_object_or_404(Nurse, id=pk)
+            serializer = NurseSerializer(nurse)
+            return Response(serializer.data)
+        else:
+            nurse_objs = Nurse.objects.all()
+            serializer = NurseSerializer(nurse_objs, many=True)
+            return Response(serializer.data)
  
     def post(self,request):
         serializer = NurseSerializer(data = request.data)
@@ -136,11 +146,15 @@ class NurseViewSet(APIView):
 class StaffViewSet(APIView):
 
     permission_classes = [IsAuthenticated]
-    def get(self,request):
-        staff_objs = Staff.objects.all()
-        serializer = StaffSerializer(staff_objs, many = True)
-        return Response(serializer.data)
-
+    def get(self,request,pk=None):
+        if pk:
+            staff = get_object_or_404(Staff, id=pk)
+            serializer = StaffSerializer(staff)
+            return Response(serializer.data)
+        else:
+            staff_objs = Staff.objects.all()
+            serializer = StaffSerializer(staff_objs, many=True)
+            return Response(serializer.data)
     def post(self,request):
         serializer = StaffSerializer(data = request.data)
         if serializer.is_valid():
@@ -168,10 +182,15 @@ class StaffViewSet(APIView):
         return Response(serializer.data)
 class AppointmentViewSet(APIView):
     permission_classes = [IsAuthenticated]
-    def get(self,request):
-        appointment_objs = Appointment.objects.all()
-        serializer = AppointmentSerializer(appointment_objs, many = True)
-        return Response(serializer.data)
+    def get(self,request,pk=None):
+        if pk:
+            appointment = get_object_or_404(Appointment, id=pk)
+            serializer = AppointmentSerializer(appointment)
+            return Response(serializer.data)
+        else:
+            appointment_objs = Appointment.objects.all()
+            serializer = AppointmentSerializer(appointment_objs, many=True)
+            return Response(serializer.data)
 
     def post(self,request):
         serializer = AppointmentSerializer(data = request.data)
@@ -195,10 +214,15 @@ class AppointmentViewSet(APIView):
         return Response('Appointment deleted successfully!')
 class PrescriptionViewSet(APIView):
     permission_classes = [IsAuthenticated]
-    def get(self,request):
-        prescription_objs = Prescription.objects.all()
-        serializer = PrescriptionSerializer(prescription_objs, many = True)
-        return Response(serializer.data)
+    def get(self,request,pk=None):
+        if pk:
+            prescription = get_object_or_404(Prescription, id=pk)
+            serializer = PrescriptionSerializer(prescription)
+            return Response(serializer.data)
+        else:
+            prescription_objs = Prescription.objects.all()
+            serializer = PrescriptionSerializer(prescription_objs, many=True)
+            return Response(serializer.data)
 
     def post(self,request):
         serializer = PrescriptionSerializer(data = request.data)
@@ -216,3 +240,99 @@ class PrescriptionViewSet(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors, status=400)
+class DepartmentViewSet(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request,pk=None):
+        if pk:
+            department = get_object_or_404(Department, id=pk)
+            serializer = DepartmentSerializer(department)
+            return Response(serializer.data)
+        else:
+            department_objs = Department.objects.all()
+            serializer = DepartmentSerializer(department_objs, many=True)
+            return Response(serializer.data)
+
+    def post(self,request):
+        serializer = DepartmentSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+
+    def put(self,request, pk):
+        department = Department.objects.get(id = pk)
+        serializer = DepartmentSerializer(instance = department, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+    def delete(self,request, pk):
+        department = Department.objects.get(id = pk)
+        department.delete()
+        return Response('Department deleted successfully!')
+class RoomViewSet(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request,pk=None):
+        if pk:
+            room = get_object_or_404(Room, id=pk)
+            serializer = RoomSerializer(room)
+            return Response(serializer.data)
+        else:
+            room_objs = Room.objects.all()
+            serializer = RoomSerializer(room_objs, many=True)
+            return Response(serializer.data)
+
+    def post(self,request):
+        serializer = RoomSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+
+    def put(self,request, pk):
+        room = Room.objects.get(id = pk)
+        serializer = RoomSerializer(instance = room, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+    def delete(self,request, pk):
+        room = Room.objects.get(id = pk)
+        room.delete()
+        return Response('Room deleted successfully!')
+class BillViewSet(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request,pk=None):
+        if pk:
+            bill = get_object_or_404(Bill, id=pk)
+            serializer = BillSerializer(bill)
+            return Response(serializer.data)
+        else:
+            bill_objs = Bill.objects.all()
+            serializer = BillSerializer(bill_objs, many=True)
+            return Response(serializer.data)
+
+    def post(self,request):
+        serializer = BillSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+
+    def put(self,request, pk):
+        bill = Bill.objects.get(id = pk)
+        serializer = BillSerializer(instance = bill, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+    def delete(self,request, pk):
+        bill = Bill.objects.get(id = pk)
+        bill.delete()
+        return Response('Bill deleted successfully!')

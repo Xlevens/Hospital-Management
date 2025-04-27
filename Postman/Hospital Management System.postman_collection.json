@@ -1,0 +1,2004 @@
+{
+	"info": {
+		"_postman_id": "64334b29-39ed-4321-9c2e-c99f9316ec3e",
+		"name": "Hospital Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41625104"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/token/",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Refresh",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/token/",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refresh\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NTgyOTYxNywiaWF0IjoxNzQ1NzQzMjE3LCJqdGkiOiI5ZDcyODgyZjA4NTE0ZDI4YTZmYzY5ZGQ3NjIyZGFjMCIsInVzZXJfaWQiOjF9._XHVUBae4mTn_GKC8aocRDJAUGzs4tG3tuRplVeMshk\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/token/refresh/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"room_number\": \"ICU-12\",\r\n  \"type\": \"ICU\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/room",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"room"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "New Request",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"room_number\": \"ICU-12\",\r\n  \"type\": \"ICU\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/room",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"room"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "New Request",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"room_number\": \"ICU-12\",\r\n  \"type\": \"ICU\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/room/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"room",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"room_number\": \"GEN-101\",\r\n  \"type\": \"General\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/room/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"room",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"room_number\": \"ICU-12\",\r\n  \"type\": \"ICU\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/room/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"room",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQyOTg1LCJpYXQiOjE3NDU3NDExODUsImp0aSI6ImI3ZjAyNzNhYTFjZTQxNTg5ZGE4NmJkMjQ5YjcwMDJiIiwidXNlcl9pZCI6MX0.xji7PecuOHJVdTI-aBERZ38hivHMWF_BRoR0ZM7FYLM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \" OPD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/department",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"department"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTkxNDUyLCJpYXQiOjE3NDU1ODk2NTIsImp0aSI6ImUyNDc0M2YwMzY4MTQwYTc5NGM5ZWNkYTBmZmFjNTY0IiwidXNlcl9pZCI6MX0.tkw3KvTdX7fMZudhSlMeyGBWa76aHagfLmVJCBlkytg",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/department",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"department"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTkxNDUyLCJpYXQiOjE3NDU1ODk2NTIsImp0aSI6ImUyNDc0M2YwMzY4MTQwYTc5NGM5ZWNkYTBmZmFjNTY0IiwidXNlcl9pZCI6MX0.tkw3KvTdX7fMZudhSlMeyGBWa76aHagfLmVJCBlkytg",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/department/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"department",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTkxNDUyLCJpYXQiOjE3NDU1ODk2NTIsImp0aSI6ImUyNDc0M2YwMzY4MTQwYTc5NGM5ZWNkYTBmZmFjNTY0IiwidXNlcl9pZCI6MX0.tkw3KvTdX7fMZudhSlMeyGBWa76aHagfLmVJCBlkytg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n  \"name\": \"Emergency\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/department/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"department",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NTkxNDUyLCJpYXQiOjE3NDU1ODk2NTIsImp0aSI6ImUyNDc0M2YwMzY4MTQwYTc5NGM5ZWNkYTBmZmFjNTY0IiwidXNlcl9pZCI6MX0.tkw3KvTdX7fMZudhSlMeyGBWa76aHagfLmVJCBlkytg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\" : 1,\r\n  \"name\": \"Orthopedics\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/department/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"department",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQyOTg1LCJpYXQiOjE3NDU3NDExODUsImp0aSI6ImI3ZjAyNzNhYTFjZTQxNTg5ZGE4NmJkMjQ5YjcwMDJiIiwidXNlcl9pZCI6MX0.xji7PecuOHJVdTI-aBERZ38hivHMWF_BRoR0ZM7FYLM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Dr. Imran Siddiqui\",\r\n    \"email\": \"imran@hospital.com\",\r\n    \"specialization\": \"Neurologist\",\r\n    \"gender\": \"M\",\r\n    \"phone_number\": \"03002223333\",\r\n    \"department\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/doctor",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "New Request",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQyOTg1LCJpYXQiOjE3NDU3NDExODUsImp0aSI6ImI3ZjAyNzNhYTFjZTQxNTg5ZGE4NmJkMjQ5YjcwMDJiIiwidXNlcl9pZCI6MX0.xji7PecuOHJVdTI-aBERZ38hivHMWF_BRoR0ZM7FYLM",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/doctor",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "New Request",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQyOTg1LCJpYXQiOjE3NDU3NDExODUsImp0aSI6ImI3ZjAyNzNhYTFjZTQxNTg5ZGE4NmJkMjQ5YjcwMDJiIiwidXNlcl9pZCI6MX0.xji7PecuOHJVdTI-aBERZ38hivHMWF_BRoR0ZM7FYLM",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/doctor/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Dr. Imran Siddiqui\",\r\n    \"email\": \"example@hospital.com\",\r\n    \"specialization\": \"Neurologist\",\r\n    \"gender\": \"M\",\r\n    \"phone_number\": \"03002223333\",\r\n    \"department\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/doctor/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/doctor/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQyOTg1LCJpYXQiOjE3NDU3NDExODUsImp0aSI6ImI3ZjAyNzNhYTFjZTQxNTg5ZGE4NmJkMjQ5YjcwMDJiIiwidXNlcl9pZCI6MX0.xji7PecuOHJVdTI-aBERZ38hivHMWF_BRoR0ZM7FYLM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Sarah Malik\",\r\n  \"email\": \"sarah@hospital.com\",\r\n  \"department\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/staff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"staff"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "New Request",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/staff",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"staff"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "New Request",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/staff/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"staff",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Sara Malik\",\r\n    \"email\": \"sarah@hospital.com\",\r\n    \"department\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/staff/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"staff",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/staff/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"staff",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Nurses",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Fatima Shah\",\r\n  \"email\": \"fatima@hospital.com\",\r\n  \"department\": 2,\r\n  \"assigned_doc\": 2,\r\n  \"gender\": \"F\",\r\n  \"phone_number\": \"03451234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/nurse",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "New Request",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/nurse",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"nurse"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "New Request",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/nurse/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"nurse",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Fatima Umair\",\r\n  \"email\": \"fatima@hospital.com\",\r\n  \"department\": 2,\r\n  \"assigned_doc\": 2,\r\n  \"gender\": \"F\",\r\n  \"phone_number\": \"03451234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/nurse/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzQ1MDE3LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6IjIwMjI5MWMwMGQ4YjQzZjE5ZWU0ZTA1MzViZDdhOGUzIiwidXNlcl9pZCI6MX0.B84VhJjkIuXCIMtZ0QQEzGgUwrS2W_PQQ31J3eaM7rY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/nurse/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Zainab Ahmed\",\r\n  \"email\": \"zainab@gmail.com\",\r\n  \"gender\": \"F\",\r\n  \"phone_number\": \"03110001234\",\r\n  \"doctor\": 2,\r\n  \"nurses\": [1],\r\n  \"admitted_on\": \"2025-04-24\",\r\n  \"admitted_by\": 1,\r\n  \"discharged_on\": \"2025-04-27\",\r\n  \"status\": \"Discharged\",\r\n  \"room\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/patient",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"patient"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/patient",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"patient"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/patient/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"patient",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Zainab Ahmed\",\r\n    \"email\": \"zainab@gmail.com\",\r\n    \"gender\": \"F\",\r\n    \"phone_number\": \"03110001234\",\r\n    \"admitted_on\": \"2025-04-24\",\r\n    \"discharged_on\": \"2025-04-27\",\r\n    \"status\": \"Discharged\",\r\n    \"doctor\": 1,\r\n    \"admitted_by\": 1,\r\n    \"room\": 1,\r\n    \"nurses\": [\r\n        1\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/patient/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"patient",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Zainab Ahmed\",\r\n    \"email\": \"zainab@gmail.com\",\r\n    \"gender\": \"F\",\r\n    \"phone_number\": \"03110001234\",\r\n    \"admitted_on\": \"2025-04-24\",\r\n    \"discharged_on\": \"2025-04-27\",\r\n    \"status\": \"Discharged\",\r\n    \"doctor\": 1,\r\n    \"admitted_by\": 1,\r\n    \"room\": 1,\r\n    \"nurses\": [\r\n        1\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/patient/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"patient",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"patient\": 1,\r\n  \"doctor\": 1,\r\n  \"date\": \"2025-04-26\",\r\n  \"time\": \"14:30:00\",\r\n  \"status\": \"Scheduled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/appointment/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"appointment",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/appointment",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"appointment"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/appointment/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"appointment",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"patient\": 1,\r\n  \"doctor\": 2,\r\n  \"date\": \"2025-04-26\",\r\n  \"time\": \"14:30:00\",\r\n  \"status\": \"Scheduled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/appointment/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"appointment",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUwMzg5LCJpYXQiOjE3NDU3NDMyMTcsImp0aSI6Ijc5YTdkNGY1ZDAzYzRhNmRhZjExNDhiYzI4Zjc1NDAwIiwidXNlcl9pZCI6MX0.KF_O_aR0tFPcBO9rya7gXAJ6OoMXaWZfRyaZto3Mw0I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/appointment/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"appointment",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Prescription",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"appointment\": 1,\r\n  \"medication\": \"Paracetamol 500mg twice a day for 5 days\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/prescription",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"prescription"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/prescription",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"prescription"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/prescription/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"prescription",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"appointment\": 1,\r\n  \"medication\": \"Paracetamol 500mg twice a day for 10 days\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/prescription",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"prescription"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/prescription/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"prescription",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Billing",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"patient\": 1,\r\n  \"total_amount\": 15000.00,\r\n  \"paid\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/bill/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"bill",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Get All",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"appointment\": 1,\r\n  \"medication\": \"Paracetamol 500mg twice a day for 10 days\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/bill",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"bill"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get ID",
+							"item": [
+								{
+									"name": "http://localhost:8000/api/department",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"appointment\": 1,\r\n  \"medication\": \"Paracetamol 500mg twice a day for 10 days\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/bill/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"bill",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"patient\": 1,\r\n  \"total_amount\": 15000.00,\r\n  \"paid\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/bill/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"bill",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "http://localhost:8000/api/department",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1NzUxNzA4LCJpYXQiOjE3NDU3NDk5MDgsImp0aSI6IjE1NWU2NTg2ZjgzYTQwYjc4ZWUzNjdmMjhiMGZjYzhkIiwidXNlcl9pZCI6MX0.2ztIBINCy2BbLcLFv5wClBjbxE0j4mlNZqrt3Wt5Udw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/bill/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"bill",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -139,10 +139,7 @@ class NurseViewSet(APIView):
         nurse = Nurse.objects.get(id = pk)
         nurse.delete()
         return Response('Nurse deleted successfully!')
-    def get(self, request, pk):
-        nurse = get_object_or_404(Nurse, id=pk)
-        serializer = NurseSerializer(nurse)
-        return Response(serializer.data)
+
 class StaffViewSet(APIView):
 
     permission_classes = [IsAuthenticated]
@@ -176,10 +173,7 @@ class StaffViewSet(APIView):
         staff = Staff.objects.get(id = pk)
         staff.delete()
         return Response('Staff deleted successfully!')
-    def get(self, request, pk):
-        staff = get_object_or_404(Staff, id=pk)
-        serializer = StaffSerializer(staff)
-        return Response(serializer.data)
+
 class AppointmentViewSet(APIView):
     permission_classes = [IsAuthenticated]
     def get(self,request,pk=None):
@@ -240,6 +234,10 @@ class PrescriptionViewSet(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors, status=400)
+    def delete(self,request, pk):
+        prescription = Prescription.objects.get(id = pk)
+        prescription.delete()
+        return Response('Prescription deleted successfully!')
 class DepartmentViewSet(APIView):
     permission_classes = [IsAuthenticated]
     def get(self,request,pk=None):

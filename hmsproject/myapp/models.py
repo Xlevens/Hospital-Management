@@ -4,13 +4,13 @@ from django.utils import timezone
 Choice = {("M","Male"), ("F","female")}
 # Create your models here.
 class Department(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     def __str__(self):
         return self.name
 class Staff(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    department = models.CharField(max_length=100)
+    department = models.ForeignKey(Department, on_delete=models.SET_NULL,null=True,related_name="staffs")
     def __str__(self):
         return self.name
 class Doctor(models.Model):
@@ -51,8 +51,8 @@ class Patient(models.Model):
 class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE,related_name="appointments")
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE,related_name="appointments")
-    date = models.DateField(default=date.today)
-    time = models.TimeField(default=datetime.now)
+    date = models.DateField(null = False, blank=False)
+    time = models.TimeField(null=False, blank=False)
     status = models.CharField(max_length=50, default='Scheduled')
    
 
@@ -66,7 +66,7 @@ class Prescription(models.Model):
 class Room(models.Model):
     room_number = models.CharField(max_length=10)
     type = models.CharField(max_length=50)  # e.g., ICU, General, Private
-    occupied = models.BooleanField(default=False)
+
     def __str__(self):
         return self.room_number + " - " + self.type
 class Bill(models.Model):

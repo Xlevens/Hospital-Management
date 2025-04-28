@@ -21,7 +21,7 @@ class Doctor(models.Model):
     gender = models.CharField(max_length=10, choices=Choice, null=True)
     phone_number = models.CharField(max_length=15, null=True)
     def __str__(self):
-        return "Dr."+self.name
+        return self.name
 class Nurse(models.Model):
 
     name = models.CharField(max_length=255)

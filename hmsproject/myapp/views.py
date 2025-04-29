@@ -16,17 +16,11 @@ from django.urls import reverse
 def api_home(request):
     return Response({
         "Doctors (List/Create)": request.build_absolute_uri(reverse('doctor-list')),
-        "Doctors (Detail)": request.build_absolute_uri('/doctor/<id>'),
         "Patients (List/Create)": request.build_absolute_uri(reverse('patient-list')),
-        "Patients (Detail)": request.build_absolute_uri('/patient/<id>'),
         "Nurses (List/Create)": request.build_absolute_uri(reverse('nurse-list')),
-        "Nurses (Detail)": request.build_absolute_uri('/nurse/<id>'),
         "Staff (List/Create)": request.build_absolute_uri(reverse('staff-list')),
-        "Staff (Detail)": request.build_absolute_uri('/staff/<id>'),
         "Appointments (List/Create)": request.build_absolute_uri(reverse('appointment-list')),
-        "Appointments (Detail)": request.build_absolute_uri('/appointment/<id>'),
         "Prescriptions (List/Create)": request.build_absolute_uri(reverse('prescription-list')),
-        "Prescriptions (Detail)": request.build_absolute_uri('/prescription/<id>'),
     })
 
 

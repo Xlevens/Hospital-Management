@@ -22,7 +22,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1ODI1MzU3LCJpYXQiOjE3NDU4MjM1NTcsImp0aSI6ImE2MWU2NzUwOGRhNzQ3NmM5NWYxYTFkNTJkYjczMTA0IiwidXNlcl9pZCI6MX0.ashwtBOmb2l1dwDMhaCuyXpF8B5RgdfelTqEJtrJ2LI",
+								"value": "Bearer {{access_token}}",
 								"type": "text",
 								"disabled": true
 							}
